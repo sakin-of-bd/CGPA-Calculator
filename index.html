@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="dark-mode-toggle">
+        <label class="switch">
+            <input type="checkbox" id="darkModeSwitch" />
+            <span class="slider round"></span>
+        </label>
+        <span>Dark Mode</span>
+    </div>
+
+    <button id="togglePageBtn" class="add-btn">Go to Quick CGPA Update</button>
+
+
+    <div id="page1">
+        <div id="semesters"></div>
+        <button class="add-btn" onclick="addSemester()">Add Next Semester</button>
+        <button class="add-btn" onclick="calculateOverallCGPA()">Calculate CGPA</button>
+        <div class="footer">
+            <span><strong>
+                    <h2>Your CGPA:</h2>
+                </strong> <span id="cgpa">
+                    <h2>0.00</h2>
+                </span></span>
+        </div>
+    </div>
+
+
+    <div id="page2" style="display:none;">
+        <div class="quick-update">
+            <h2>Quick CGPA Update</h2>
+            <label>Previous CGPA:</label>
+            <input type="number" id="prevCgpa" step="0.01" min="0" max="4.00" placeholder="e.g. 3.50" />
+            <label>Total Completed Credits (Before Current Semester):</label>
+            <input type="number" id="prevCredits" step="1" min="0" placeholder="e.g. 90" />
+
+            <h3>Current Semester Subjects</h3>
+            <table id="quick-subjects-table">
+                <thead>
+                    <tr>
+                        <th>Subject Name</th>
+                        <th>Grade</th>
+                        <th>Credits</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <button class="add-btn" onclick="addQuickSubject()">Add Subject</button>
+            <button class="add-btn" onclick="quickCgpaCalc()">Calculate Updated CGPA</button>
+            <p><strong>Updated CGPA:</strong> <span id="quickCgpa">0.00</span></p>
+        </div>
+    </div>
+
+    <footer class="powered-by">
+        Powered by <strong>Sakin</strong>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
